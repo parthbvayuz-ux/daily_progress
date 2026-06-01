@@ -1,7 +1,14 @@
-def avg():
-    num1=int(input("enter a number"))
-    num2=int(input("enter a numner"))
-    return (num1+num2)/2
+def binary_search(arr: list[int], target: int) -> int:
+    left, right = 0, len(arr) - 1
 
+    while left <= right:
+        mid = (left + right) // 2
 
-print(avg())
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
