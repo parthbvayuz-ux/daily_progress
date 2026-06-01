@@ -27,17 +27,6 @@ def get_student(student_id: int):
         if student["id"] == student_id:
             return student
     raise HTTPException(status_code=404, detail="Student not found")
-
-@app.get("/search")
-def search_student(name: str):
-    result = []
-
-    for student in students:
-        if name.lower() in student["name"].lower():
-            result.append(student)
-
-    return result
-
 @app.post("/students")
 def add_student(student: Student):
     for s in students:
